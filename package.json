@@ -1,0 +1,14 @@
+{
+  "name": "Hacker Rank solutions",
+  "version": "0.0.0",
+  "description": "My solutions to some of the exercises available at https://www.hackerrank.com/domains",
+  "main": "main.js",
+  "author": {
+    "name": "Dzianis",
+    "email": ""
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+ }
+}
