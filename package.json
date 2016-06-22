@@ -1,5 +1,5 @@
 {
-  "name": "Hacker Rank solutions",
+  "name": "hrank",
   "version": "0.0.0",
   "description": "My solutions to some of the exercises available at https://www.hackerrank.com/domains",
   "main": "main.js",
@@ -7,8 +7,8 @@
     "name": "Dzianis",
     "email": ""
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
- }
+    "readline": "^1.3.0"
+  }
 }
