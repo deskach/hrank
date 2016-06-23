@@ -16,6 +16,6 @@ var getData = require('./get_data');
       getData(funcArray[i]);
     }
   }
-}) (bijectionFunctions, 2, "3\n1 2 2");
+}) (bijectionFunctions, 4, "3\n2 3 1");
 
 
