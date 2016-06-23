@@ -7,7 +7,7 @@ solutions[0] = () => {
 };
 solutions[1] = () => {
 };
-solutions[2] = (input) => {
+solutions[2] = (input) => { // Security Bijective Functions
   var unique = {};
   var array = input.split('\n')[1].split(' ');
 
@@ -24,7 +24,7 @@ solutions[2] = (input) => {
   console.log("YES");
 };
 
-solutions[3] = (input) => {
+solutions[3] = (input) => { // Security Function Inverses
   var values = input.split('\n');
   var array = values[1].split(' ').map((i) => parseInt(i));
   var n = parseInt(values[0]);
@@ -38,7 +38,7 @@ solutions[3] = (input) => {
   }
 };
 
-solutions[4] = (input) => {
+solutions[4] = (input) => { //Security Permutations
   var values = input.split('\n');
   var array = [undefined].concat(values[1].split(' ').map((i) => parseInt(i)));
   var n = parseInt(values[0]);
@@ -48,7 +48,7 @@ solutions[4] = (input) => {
   }
 };
 
-solutions[5] = (input) => {
+solutions[5] = (input) => { //Security Involution
   var values = input.split('\n');
   var array = [undefined].concat(values[1].split(' ').map((i) => parseInt(i)));
   var n = parseInt(values[0]);
