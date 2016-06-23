@@ -48,4 +48,23 @@ solutions[4] = (input) => {
   }
 };
 
+solutions[5] = (input) => {
+  var values = input.split('\n');
+  var array = [undefined].concat(values[1].split(' ').map((i) => parseInt(i)));
+  var n = parseInt(values[0]);
+  var dict = {};
+
+  for (var i in array) {
+    dict[array[i]] = parseInt(i);
+  }
+
+  for (var i = 1; i < n + 1; i++ ) {
+    if (array[i] != dict[i]) {
+      console.log("NO");
+      return;
+    }
+  }
+  console.log("YES");
+};
+
 module.exports = solutions;

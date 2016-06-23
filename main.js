@@ -2,6 +2,7 @@
  * Created by Dzianis on 22/06/2016.
  */
 var bijectionFunctions = require('./bijection_functions');
+var cryptography = require('./cryptography');
 var getData = require('./get_data');
 
 (function (funcArray, idx, input) {
@@ -12,10 +13,10 @@ var getData = require('./get_data');
       getData(funcArray[idx]);
     }
   } else {
-    for(i in funcArray) {
+    for(var i in funcArray) {
       getData(funcArray[i]);
     }
   }
-}) (bijectionFunctions, 4, "3\n2 3 1");
+}) (cryptography, 0, "2\n2 1");
 
 
