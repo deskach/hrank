@@ -3,11 +3,7 @@
  */
 var solutions = [];
 
-solutions[0] = (input) => {
-  /*
-   * Basic Cryptanalysis
-   */
-
+solutions[0] = (input) => { // Basic Cryptanalysis
   var fs = require('fs');
   
   fs.readFile('dictionary.lst', 'utf8', function(err, data) {
@@ -162,6 +158,69 @@ solutions[0] = (input) => {
       console.log(translations[n]);
     }
   });
+};
+
+solutions[1] = (input) => { // Keyword Transposition Cipher
+  var data = input.toUpperCase().split('\n').map((w) => (w.replace('\r', '')));
+  var numCases = parseInt(data[0]);
+  const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var output = [];
+
+  for(var i = 1; i <= numCases * 2; i += 2) {
+    var keyword = Array.from(new Set(data[i].split(''))).join(''); // remove duplicated letters
+    var encryption = data[i+1];
+    var matrix = [keyword.split('')];
+    var row = [];
+
+    // create initial matrix
+    for(var ch of ALPHABET) {
+      if(keyword.indexOf(ch) < 0) {
+        row.push(ch);
+      }
+      if (row.length == keyword.length) {
+        matrix.push(row);
+        row = [];
+      }
+    }
+    if (row.length > 0) {
+      while (row.length < matrix[0].length) {
+        row.push(null);
+      }
+      matrix.push(row);
+    }
+
+    // Create sequence of letters to be used instead of the regular ALPHABET
+    var sortedKeyword = keyword.split('').sort().join('');
+    var substitution = [];
+    for (ch of sortedKeyword) {
+      var colNum = matrix[0].indexOf(ch);
+
+      for (var j = 0; j < matrix.length; j++) {
+        var enchar = matrix[j][colNum];
+
+        if(enchar) {
+          substitution.push(enchar);
+        }
+      }
+    }
+
+    // Create dict which maps regular ALPHABET to the encrypted one
+    var dict = {};
+    for(var j = 0; j < ALPHABET.length; j++) {
+      dict[substitution[j]] = ALPHABET[j];
+    }
+    dict[' '] = ' ';
+
+    // Now decrypt the text
+    var decrypted = [];
+    for(ch of encryption) {
+      decrypted.push(dict[ch]);
+    }
+
+    output.push(decrypted.join(''));
+  }
+
+  console.log(output.join('\n'));
 };
 
 module.exports = solutions;
