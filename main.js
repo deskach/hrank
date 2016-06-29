@@ -4,6 +4,8 @@
 var bijectionFunctions = require('./bijection_functions');
 var cryptography = require('./cryptography');
 var getData = require('./get_data');
+var challenge = require('./week_of_challenge');
+var dataStructures = require('./data_structures');
 
 (function (funcArray, idx, input) {
   if (idx > -1) {
@@ -17,4 +19,4 @@ var getData = require('./get_data');
       getData(funcArray[i]);
     }
   }
-}) (cryptography, 1, "2\nSPORT\nLDXTW KXDTL NBSFX BFOII LNBHG ODDWN BWK\nSECRET\nJHQSU XFXBQ");
+}) (dataStructures, 1, "6 \n6 2 3 5 1 4");

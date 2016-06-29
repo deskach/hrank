@@ -1,6 +1,7 @@
 /**
  * Created by Dzianis on 23/06/2016.
  */
+var utils = require('./utils');
 var solutions = [];
 
 solutions[0] = (input) => { // Basic Cryptanalysis
@@ -221,6 +222,28 @@ solutions[1] = (input) => { // Keyword Transposition Cipher
   }
 
   console.log(output.join('\n'));
+};
+
+solutions[2] = (input) => { //Security - Message Space and Ciphertext Space
+  var M = input.split('').map((v) => { return parseInt(v); });
+  var C = M.map((v) => { return (v + 1 == 10) ? 0 : v + 1; });
+
+  console.log(C.join(''));
+};
+
+solutions[3] = (input) => { //Security Key Spaces
+  var values = input.split('\n');
+  var M = values[0].split('').map((v) => { return parseInt(v); });
+  var k = parseInt(values[1]);
+  var C = M.map((v) => { return (v + k > 9) ? (v + k - 1) % 9 : v + k; });
+
+  console.log(C.join(''));
+};
+
+solutions[4] = (input) => { //Security Encryption Scheme
+  var v = parseInt(input);
+
+  console.log(utils.fact(v));
 };
 
 module.exports = solutions;
